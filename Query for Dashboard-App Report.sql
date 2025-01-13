@@ -3,11 +3,6 @@
 --DECLARE @UpperLimit DATE= '2022-05-22';
 --DECLARE @ProviderConsultantParam VARCHAR(30)= 'Ondina';
 
-/**********************************
-Mihan's decision:
-- 
-***********************************/
-
 
 --Gathering Consultant info from Addisons DB (unchanged from previous report)
 --DECLARE @tTinConsultantMapping TABLE (TIN VARCHAR(9), Consultant VARCHAR(100), Company VARCHAR(100), NPI VARCHAR(10))
@@ -150,8 +145,6 @@ FROM [pbaco-beta.database.windows.net].[Messaging].[dbo].Alerts
 WHERE Active = 1 
 	AND Convert(DATETIME, [CreatedDate] AT TIME ZONE 'UTC' AT TIME ZONE 'Eastern Standard Time') BETWEEN @LowerLimit AND DATEADD(day,1,@UpperLimit) 
 	AND BenId NOT IN (SELECT BenId FROM [pbaco-beta.database.windows.net].[Messaging].[dbo].PatientExclusions WHERE BenId IS NOT NULL)
-
---SELECT * FROM @tAlerts WHERE AlertId IN ('153AF1BF-429C-4A0D-8D9E-6DBB37CB3A2A','EFDE0B10-7341-4C69-816C-AB954DCA0934')
 
 --16 seconds all above
 
