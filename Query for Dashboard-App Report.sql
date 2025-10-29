@@ -1,7 +1,7 @@
 --ticket 5050
 --DECLARE @LowerLimit DATE= '2024-05-16';
 --DECLARE @UpperLimit DATE= '2024-05-22';
---DECLARE @ProviderConsultantParam VARCHAR(30)= 'Ondina';
+--DECLARE @ProviderConsultantParam VARCHAR(30)= 'Peter';
 
 
 --Gathering Consultant info from Zemings DB (unchanged from previous report)
@@ -812,3 +812,4 @@ FROM
 WHERE
 	ProviderConsultant IN(@ProviderConsultantParam)
 order by  PatientsReceived DESC
+
